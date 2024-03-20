@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basic Form</title>
+<style>
+    label {
+        margin-bottom: 1px;
+    }
+</style>
+</head>
+<body>
+    <h2>Duke Aron M. Ruiz | ICT 11-C | Performance Task 5 | Basic Form</h2>
+    <form id="dataForm">
+        <label for="firstName">First Name:</label> <br>
+        <input type="text" id="firstName" required> <br> <br>
+
+        <label for="lastName">Last Name:</label> <br>
+        <input type="text" id="lastName" required><br>
+    <br>
+        <label>Gender:</label> <br>
+        <input type="radio" name="gender" id="male" value="Male">
+        <label for="male">Male</label>
+        <input type="radio" name="gender" id="female" value="Female">
+        <label for="female">Female</label><br>
+        <br>
+        <label>How do you go to school:</label> <br>
+        <input type="radio" name="transportation" id="car" value="CAR">
+        <label for="car">CAR</label> 
+        <input type="radio" name="transportation" id="bus" value="BUS">
+        <label for="bus">BUS</label>
+        <input type="radio" name="transportation" id="scooter" value="SCOOTER">
+        <label for="scooter">SCOOTER</label>
+        <input type="radio" name="transportation" id="commute" value="COMMUTE">
+        <label for="commute">COMMUTE</label><br>
+        <br>
+        <label for="birthMonth">In what month were you born:</label> <br>
+        <select id="birthMonth" required>
+            <option value="">Select One</option>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+        </select><br>
+        <br>
+        <label for="about">Please say something about yourself:</label>
+        <br>
+        <textarea id="about" rows="4"></textarea><br>
+        
+        <button type="button" onclick="resetForm()">Reset</button>
+        <button type="button" onclick="validateForm()">OK</button>
+    </form>
+
+    <script>
+        function resetForm() {
+            document.getElementById("dataForm").reset();
+        }
+
+        function validateForm() {
+            var firstName = document.getElementById("firstName").value;
+            var lastName = document.getElementById("lastName").value;
+            var gender = document.querySelector('input[name="gender"]:checked');
+            var transportation = document.querySelector('input[name="transportation"]:checked');
+            var birthMonth = document.getElementById("birthMonth").value;
+            var about = document.getElementById("about").value;
+
+            if (!firstName || !lastName || !gender || !transportation || !birthMonth || !about) {
+                alert("Please fill out all fields.");
+                return;
+            }
+
+            alert("Form submitted successfully!");
+            // You can do further processing here
+        }
+    </script>
+</body>
+</html>
